@@ -3,23 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6E1345A5A9F8A4C9519A2F /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DB6665CD693404AD7535B66 /* amplifyconfiguration.json */; };
+		DB7F036E674D7F20AE6DCDF0 /* Pods_schedule_day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BF8428007F69941BA471E /* Pods_schedule_day.framework */; };
+		F0F4C476134EC13ECD50B61C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C26E22F623036C74AB86691 /* awsconfiguration.json */; };
 		FC3F53CC269FB9FB00B995A6 /* schedule_dayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3F53CB269FB9FB00B995A6 /* schedule_dayApp.swift */; };
 		FC3F53CE269FB9FB00B995A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3F53CD269FB9FB00B995A6 /* ContentView.swift */; };
 		FC3F53D0269FB9FD00B995A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3F53CF269FB9FD00B995A6 /* Assets.xcassets */; };
 		FC3F53D3269FB9FD00B995A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3F53D2269FB9FD00B995A6 /* Preview Assets.xcassets */; };
+		FC985718269FC02D007A83FC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FC985716269FC02D007A83FC /* awsconfiguration.json */; };
+		FC985719269FC02D007A83FC /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FC985717269FC02D007A83FC /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		174BF8428007F69941BA471E /* Pods_schedule_day.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_schedule_day.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C26E22F623036C74AB86691 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		8DB6665CD693404AD7535B66 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		D62BF1C0662134BD5EE44B70 /* Pods-schedule_day.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-schedule_day.debug.xcconfig"; path = "Target Support Files/Pods-schedule_day/Pods-schedule_day.debug.xcconfig"; sourceTree = "<group>"; };
+		F7DEC1441225A0A332C59954 /* Pods-schedule_day.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-schedule_day.release.xcconfig"; path = "Target Support Files/Pods-schedule_day/Pods-schedule_day.release.xcconfig"; sourceTree = "<group>"; };
 		FC3F53C8269FB9FB00B995A6 /* schedule_day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = schedule_day.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3F53CB269FB9FB00B995A6 /* schedule_dayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schedule_dayApp.swift; sourceTree = "<group>"; };
 		FC3F53CD269FB9FB00B995A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC3F53CF269FB9FD00B995A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC3F53D2269FB9FD00B995A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC3F53D4269FB9FD00B995A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC985716269FC02D007A83FC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		FC985717269FC02D007A83FC /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +39,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7F036E674D7F20AE6DCDF0 /* Pods_schedule_day.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		048008702CE227592AE8C6BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D62BF1C0662134BD5EE44B70 /* Pods-schedule_day.debug.xcconfig */,
+				F7DEC1441225A0A332C59954 /* Pods-schedule_day.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		46820C53EC7975BA219BA070 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				7C26E22F623036C74AB86691 /* awsconfiguration.json */,
+				8DB6665CD693404AD7535B66 /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
+		E25FBFCD596C39B42E30B395 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				174BF8428007F69941BA471E /* Pods_schedule_day.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FC3F53BF269FB9FB00B995A6 = {
 			isa = PBXGroup;
 			children = (
 				FC3F53CA269FB9FB00B995A6 /* schedule_day */,
 				FC3F53C9269FB9FB00B995A6 /* Products */,
+				048008702CE227592AE8C6BF /* Pods */,
+				E25FBFCD596C39B42E30B395 /* Frameworks */,
+				46820C53EC7975BA219BA070 /* AmplifyConfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +94,8 @@
 		FC3F53CA269FB9FB00B995A6 /* schedule_day */ = {
 			isa = PBXGroup;
 			children = (
+				FC985717269FC02D007A83FC /* amplifyconfiguration.json */,
+				FC985716269FC02D007A83FC /* awsconfiguration.json */,
 				FC3F53DA269FBA1300B995A6 /* assets */,
 				FC3F53CB269FB9FB00B995A6 /* schedule_dayApp.swift */,
 				FC3F53CD269FB9FB00B995A6 /* ContentView.swift */,
@@ -84,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC3F53D7269FB9FD00B995A6 /* Build configuration list for PBXNativeTarget "schedule_day" */;
 			buildPhases = (
+				E0CF88498B61EFE3D1478BE5 /* [CP] Check Pods Manifest.lock */,
 				FC3F53C4269FB9FB00B995A6 /* Sources */,
 				FC3F53C5269FB9FB00B995A6 /* Frameworks */,
 				FC3F53C6269FB9FB00B995A6 /* Resources */,
+				2B635E18D81EB828707F5745 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,12 +180,62 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC985718269FC02D007A83FC /* awsconfiguration.json in Resources */,
+				FC985719269FC02D007A83FC /* amplifyconfiguration.json in Resources */,
 				FC3F53D3269FB9FD00B995A6 /* Preview Assets.xcassets in Resources */,
 				FC3F53D0269FB9FD00B995A6 /* Assets.xcassets in Resources */,
+				F0F4C476134EC13ECD50B61C /* awsconfiguration.json in Resources */,
+				1A6E1345A5A9F8A4C9519A2F /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B635E18D81EB828707F5745 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-schedule_day/Pods-schedule_day-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-schedule_day/Pods-schedule_day-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-schedule_day/Pods-schedule_day-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0CF88498B61EFE3D1478BE5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-schedule_day-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FC3F53C4269FB9FB00B995A6 /* Sources */ = {
@@ -272,6 +368,7 @@
 		};
 		FC3F53D8269FB9FD00B995A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D62BF1C0662134BD5EE44B70 /* Pods-schedule_day.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +391,7 @@
 		};
 		FC3F53D9269FB9FD00B995A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7DEC1441225A0A332C59954 /* Pods-schedule_day.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
