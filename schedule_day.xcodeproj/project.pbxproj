@@ -16,6 +16,8 @@
 		FC3F53D3269FB9FD00B995A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3F53D2269FB9FD00B995A6 /* Preview Assets.xcassets */; };
 		FC985718269FC02D007A83FC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FC985716269FC02D007A83FC /* awsconfiguration.json */; };
 		FC985719269FC02D007A83FC /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FC985717269FC02D007A83FC /* amplifyconfiguration.json */; };
+		FC98571E26A47979007A83FC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98571D26A47979007A83FC /* SignInViewController.swift */; };
+		FC98572326A48AA7007A83FC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98572226A48AA7007A83FC /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		FC3F53D4269FB9FD00B995A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC985716269FC02D007A83FC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		FC985717269FC02D007A83FC /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
+		FC98571D26A47979007A83FC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		FC98572226A48AA7007A83FC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +98,12 @@
 		FC3F53CA269FB9FB00B995A6 /* schedule_day */ = {
 			isa = PBXGroup;
 			children = (
+				FC98572126A47995007A83FC /* backend */,
+				FC98571C26A47963007A83FC /* ViewControllers */,
 				FC985717269FC02D007A83FC /* amplifyconfiguration.json */,
 				FC985716269FC02D007A83FC /* awsconfiguration.json */,
 				FC3F53DA269FBA1300B995A6 /* assets */,
 				FC3F53CB269FB9FB00B995A6 /* schedule_dayApp.swift */,
-				FC3F53CD269FB9FB00B995A6 /* ContentView.swift */,
 				FC3F53D4269FB9FD00B995A6 /* Info.plist */,
 				FC3F53D1269FB9FD00B995A6 /* Preview Content */,
 			);
@@ -119,6 +124,23 @@
 				FC3F53CF269FB9FD00B995A6 /* Assets.xcassets */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		FC98571C26A47963007A83FC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC3F53CD269FB9FB00B995A6 /* ContentView.swift */,
+				FC98571D26A47979007A83FC /* SignInViewController.swift */,
+				FC98572226A48AA7007A83FC /* SignUpViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FC98572126A47995007A83FC /* backend */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = backend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC98571E26A47979007A83FC /* SignInViewController.swift in Sources */,
 				FC3F53CE269FB9FB00B995A6 /* ContentView.swift in Sources */,
+				FC98572326A48AA7007A83FC /* SignUpViewController.swift in Sources */,
 				FC3F53CC269FB9FB00B995A6 /* schedule_dayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
