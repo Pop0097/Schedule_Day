@@ -8,13 +8,17 @@
 import Foundation
 import SwiftUI
 import Amplify
+import AmplifyPlugins
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         do {
             Amplify.Logging.logLevel = .verbose
             
+            try Amplify.add(plugin: AWSCognitoAuthPlugin())
             try Amplify.configure()
+            
+            print("Amplify configured")
         } catch {
             print("An error occurred setting up Amplify: \(error)")
         }

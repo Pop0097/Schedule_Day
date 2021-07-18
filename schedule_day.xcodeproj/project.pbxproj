@@ -18,6 +18,7 @@
 		FC985719269FC02D007A83FC /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FC985717269FC02D007A83FC /* amplifyconfiguration.json */; };
 		FC98571E26A47979007A83FC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98571D26A47979007A83FC /* SignInViewController.swift */; };
 		FC98572326A48AA7007A83FC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98572226A48AA7007A83FC /* SignUpViewController.swift */; };
+		FC98572526A4A910007A83FC /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98572426A4A910007A83FC /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FC985717269FC02D007A83FC /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 		FC98571D26A47979007A83FC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FC98572226A48AA7007A83FC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FC98572426A4A910007A83FC /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		FC98572126A47995007A83FC /* backend */ = {
 			isa = PBXGroup;
 			children = (
+				FC98572426A4A910007A83FC /* Authentication.swift */,
 			);
 			path = backend;
 			sourceTree = "<group>";
@@ -222,13 +225,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-schedule_day/Pods-schedule_day-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-schedule_day/Pods-schedule_day-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -267,6 +266,7 @@
 				FC98571E26A47979007A83FC /* SignInViewController.swift in Sources */,
 				FC3F53CE269FB9FB00B995A6 /* ContentView.swift in Sources */,
 				FC98572326A48AA7007A83FC /* SignUpViewController.swift in Sources */,
+				FC98572526A4A910007A83FC /* Authentication.swift in Sources */,
 				FC3F53CC269FB9FB00B995A6 /* schedule_dayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

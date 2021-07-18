@@ -10,6 +10,11 @@
       "StackName": "amplify-scheduleday-dev-205836",
       "StackId": "arn:aws:cloudformation:us-east-1:986975715466:stack/amplify-scheduleday-dev-205836/ca9d2480-e507-11eb-9856-12c40fdfd925",
       "AmplifyAppId": "dufddw8htahcd"
+    },
+    "categories": {
+      "auth": {
+        "scheduleday43daff96": {}
+      }
     }
   }
 }
