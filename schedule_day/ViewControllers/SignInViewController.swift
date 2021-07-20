@@ -7,8 +7,11 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct SignInViewController : View {
+    
+    @EnvironmentObject var sessionManager : SessionManager
     
     @State var username : String = ""
     @State var password : String = ""
@@ -26,8 +29,10 @@ struct SignInViewController : View {
     
     func performSignin() {
         if verifyInputs() {
-            _ = AuthenticationBackend.shared.signIn(username: self.username, password: self.password)
+            sessionManager.signIn(username: username, password: password)
             self.invalidInputs = false
+            
+            
         } else {
             self.invalidInputs = true
         }
@@ -67,7 +72,7 @@ struct SignInViewController : View {
                         Text("Password")
                             .font(.headline)
                         
-                        SecureField("Fill in your password", text: $password)
+                        TextField("Fill in your password", text: $password)
                             .padding(.all)
                             .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                             .cornerRadius(5.0)
@@ -99,8 +104,8 @@ struct SignInViewController : View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SignUpViewController().navigationBarTitle("").navigationBarHidden(true)) {
-                    Text("Sign Up")
+                Button(action: { sessionManager.showSignUp() }) {
+                    Text("Don't have an account? Sign Up")
                 }
             }
             .navigationBarTitle("")

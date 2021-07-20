@@ -10,6 +10,8 @@ import SwiftUI
 
 struct SignUpViewController : View {
     
+    @EnvironmentObject var sessionManager : SessionManager
+    
     @State var email : String = ""
     @State var name : String = ""
     @State var username : String = ""
@@ -29,7 +31,7 @@ struct SignUpViewController : View {
     
     func performSignup() {
         if verifyInputs() {
-            _ = AuthenticationBackend.shared.signUp(username: self.username, password: self.password, email: self.email)
+            sessionManager.signUp(username: username, password: password, email: email)
             self.invalidInputs = false
         } else {
             self.invalidInputs = true
@@ -90,7 +92,7 @@ struct SignUpViewController : View {
                         Text("Password")
                             .font(.headline)
                         
-                        SecureField("Fill in your password", text: $password)
+                        TextField("Fill in your password", text: $password)
                             .padding(.all)
                             .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                             .cornerRadius(5.0)
@@ -101,7 +103,7 @@ struct SignUpViewController : View {
                         Text("Verify Password")
                             .font(.headline)
                         
-                        SecureField("Verify your password", text: $password_verify)
+                        TextField("Verify your password", text: $password_verify)
                             .padding(.all)
                             .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                             .cornerRadius(5.0)
@@ -132,8 +134,8 @@ struct SignUpViewController : View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SignInViewController().navigationBarTitle("").navigationBarHidden(true)) {
-                    Text("Sign In")
+                Button(action: { sessionManager.showSignIn() }) {
+                    Text("Already have an account? Sign In")
                 }
             }
             .navigationBarTitle("")
