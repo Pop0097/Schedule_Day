@@ -29,7 +29,7 @@ struct SignInViewController : View {
     
     func performSignin() {
         if verifyInputs() {
-            sessionManager.signIn(username: username, password: password)
+            sessionManager.signIn(username: username.capitalizingFirstLetter(), password: password)
             self.invalidInputs = false
             
             

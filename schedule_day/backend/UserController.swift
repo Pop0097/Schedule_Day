@@ -9,6 +9,7 @@ import Foundation
 import Amplify
 
 struct UserData {
+    var id: String
     var name: String
     var email: String
     var username: String
@@ -16,14 +17,21 @@ struct UserData {
 
 final class UserController: ObservableObject {
     
-    @Published var signedInUser : UserData = UserData(name: "", email: "", username: "")
+    @Published var signedInUser : UserData = UserData(id: "", name: "", email: "", username: "")
     
     func createUser(name: String, email: String, username: String, password: String) -> Void {
         let user = User(name: name, email: email, username: username, password: password)
         
         _ = Amplify.API.mutate(
             request: .create(user)
-        ) { result in
+        )
+        .resultPublisher
+        .sink {
+            if case let .failure(error) = $0 {
+                print("Got failed event with error \(error)")
+            }
+        }
+        receiveValue: { result in
             switch result {
             case .success(let user):
                 print("Successfully created user: \(user)")
@@ -34,7 +42,31 @@ final class UserController: ObservableObject {
         }
     }
 
-    func getUser(email: String) -> Void {
-//        _ = Amplify.API.query(request: .get(User.self, byEmail: email))
+    func getUser(username: String) -> Void {
+        let user = User.keys
+        let predicate = user.username == username
+            
+        _ = Amplify.API.query(
+                request: .list(User.self, where: predicate)
+            ) { [weak self] event in
+            switch event {
+            case .success(let result):
+                switch result {
+                case .success(let user):
+                    if (0 != user.count) {
+                        print("Successfully retrieved user: \(user)")
+                        
+                        self?.signedInUser = UserData(id: user[0].id, name: user[0].name, email: user[0].email, username: user[0].username)
+                    } else {
+                        print("No users found")
+                    }
+
+                case .failure(let error):
+                    print("Got failed result with \(error.errorDescription)")
+                }
+            case .failure(let error):
+                print("Got failed event with error \(error)")
+            }
+        }
     }
 }

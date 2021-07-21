@@ -31,7 +31,7 @@ struct SignUpViewController : View {
     
     func performSignup() {
         if verifyInputs() {
-            sessionManager.signUp(username: username, password: password, email: email, name: name)
+            sessionManager.signUp(username: username.capitalizingFirstLetter(), password: password, email: email, name: name)
             self.invalidInputs = false
         } else {
             self.invalidInputs = true

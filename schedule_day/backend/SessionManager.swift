@@ -13,7 +13,7 @@ enum AuthState {
     case SignUp
     case SignIn
     case ConfirmCode(username: String)
-    case Session(user: AuthUser)
+    case Session
 }
 
 // Need to publish value whe changes
@@ -23,8 +23,12 @@ final class SessionManager : ObservableObject {
     var userController = UserController()
     
     func getCurrentAuthUser() {
+        
+        
         if let user = Amplify.Auth.getCurrentUser() {
-            authState = .Session(user: user)
+            userController.getUser(username: String(user.username).capitalizingFirstLetter()) // Capitalize first letter since the authUser appears to remove all capitalization
+            
+            authState = .Session
         } else {
             authState = .SignIn
         }
@@ -126,6 +130,16 @@ final class SessionManager : ObservableObject {
                 print("Sign out failure:", error)
             }
         }
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }
  
