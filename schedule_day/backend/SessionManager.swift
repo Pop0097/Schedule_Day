@@ -20,6 +20,8 @@ enum AuthState {
 final class SessionManager : ObservableObject {
     @Published var authState: AuthState = .SignIn
     
+    var userController = UserController()
+    
     func getCurrentAuthUser() {
         if let user = Amplify.Auth.getCurrentUser() {
             authState = .Session(user: user)
@@ -36,7 +38,7 @@ final class SessionManager : ObservableObject {
         authState = .SignIn
     }
     
-    func signUp(username: String, password: String, email: String) -> Void {
+    func signUp(username: String, password: String, email: String, name: String) -> Void {
         let userAttributes = [AuthUserAttribute(.email, value: email)]
         let options = AuthSignUpRequest.Options(userAttributes: userAttributes)
         
@@ -55,6 +57,8 @@ final class SessionManager : ObservableObject {
                 
                 case .confirmUser(let details, _):
                     print(details ?? "No details")
+                    
+                    self?.userController.createUser(name: name, email: email, username: username, password: password)
                     
                     // Wrap in dispatch queue so thread is brought back to the main thread before moving
                     DispatchQueue.main.async {

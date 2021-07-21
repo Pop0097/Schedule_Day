@@ -48,6 +48,7 @@ struct MyAmplifyApp: App {
             Amplify.Logging.logLevel = .verbose
             
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
+            try Amplify.add(plugin: AWSAPIPlugin(modelRegistration: AmplifyModels()))
             try Amplify.configure()
             
             print("Amplify configured")

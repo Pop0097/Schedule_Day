@@ -8,5 +8,7 @@ target 'schedule_day' do
   # Pods for schedule_day
   pod 'Amplify'
   pod 'AmplifyPlugins/AWSCognitoAuthPlugin'
+  pod 'AmplifyPlugins/AWSAPIPlugin'
+  
 
 end
