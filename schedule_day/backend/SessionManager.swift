@@ -23,6 +23,11 @@ final class SessionManager : ObservableObject {
     
     private var userController = UserController()
     
+    private var name : String = ""
+    private var email : String = ""
+    private var username : String = ""
+    private var password : String = ""
+    
     func getCurrentAuthUser() -> Void {
         if let user = Amplify.Auth.getCurrentUser() {
             userController.getUser(username: String(user.username).capitalizingFirstLetter()) // Capitalize first letter since the authUser appears to remove all capitalization
@@ -61,7 +66,10 @@ final class SessionManager : ObservableObject {
                 case .confirmUser(let details, _):
                     print(details ?? "No details")
                     
-                    self?.userController.createUser(name: name, email: email, username: username, password: password)
+                    self?.name = name
+                    self?.email = email
+                    self?.username = username
+                    self?.password = password
                     
                     // Wrap in dispatch queue so thread is brought back to the main thread before moving
                     DispatchQueue.main.async {
@@ -85,6 +93,8 @@ final class SessionManager : ObservableObject {
                 print(confirmResult)
                 
                 if confirmResult.isSignupComplete {
+                    self?.userController.createUser(name: (self?.name ?? ""), email: (self?.email ?? ""), username: (self?.username ?? ""), password: (self?.password ?? ""))
+                    
                     DispatchQueue.main.async {
                         self?.showSignIn()
                     }
@@ -121,6 +131,7 @@ final class SessionManager : ObservableObject {
             switch result {
             case .success:
                 DispatchQueue.main.async {
+                    UserEntity.shared.setUser(user: UserData(id: "", name: "", email: "", username: ""))
                     self?.showSignIn()
                 }
                 

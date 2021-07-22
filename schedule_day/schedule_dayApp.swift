@@ -37,7 +37,7 @@ struct MyAmplifyApp: App {
                     .environmentObject(sessionManager)
                 
             case .Session:
-                Home()
+                TabViewController()
                     .environmentObject(sessionManager)
             }
         }

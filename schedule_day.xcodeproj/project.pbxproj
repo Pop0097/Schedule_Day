@@ -13,7 +13,7 @@
 		A0998C8A896875245E36C573 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54881796485501CE1B9DE35C /* User.swift */; };
 		DB7F036E674D7F20AE6DCDF0 /* Pods_schedule_day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BF8428007F69941BA471E /* Pods_schedule_day.framework */; };
 		F0F4C476134EC13ECD50B61C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C26E22F623036C74AB86691 /* awsconfiguration.json */; };
-		FC0BEA8226A4BA5900E735AF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BEA8126A4BA5900E735AF /* Home.swift */; };
+		FC0BEA8226A4BA5900E735AF /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BEA8126A4BA5900E735AF /* TabViewController.swift */; };
 		FC0BEA9026A74E7200E735AF /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0BEA8F26A74E7200E735AF /* ConfirmationViewController.swift */; };
 		FC29577026A7DAD4005C90E5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29576F26A7DAD4005C90E5 /* UserController.swift */; };
 		FC3F53CC269FB9FB00B995A6 /* schedule_dayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3F53CB269FB9FB00B995A6 /* schedule_dayApp.swift */; };
@@ -25,6 +25,10 @@
 		FC98571E26A47979007A83FC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98571D26A47979007A83FC /* SignInViewController.swift */; };
 		FC98572326A48AA7007A83FC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98572226A48AA7007A83FC /* SignUpViewController.swift */; };
 		FC98572526A4A910007A83FC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC98572426A4A910007A83FC /* SessionManager.swift */; };
+		FCBC7BE126A9F31700AA9196 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC7BE026A9F31700AA9196 /* UserEntity.swift */; };
+		FCBC7BE326A9F9CF00AA9196 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC7BE226A9F9CF00AA9196 /* CalendarViewController.swift */; };
+		FCBC7BE526A9FAA100AA9196 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC7BE426A9FAA100AA9196 /* HomeViewController.swift */; };
+		FCBC7BE726A9FC3500AA9196 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC7BE626A9FC3500AA9196 /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +39,7 @@
 		8DB6665CD693404AD7535B66 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		D62BF1C0662134BD5EE44B70 /* Pods-schedule_day.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-schedule_day.debug.xcconfig"; path = "Target Support Files/Pods-schedule_day/Pods-schedule_day.debug.xcconfig"; sourceTree = "<group>"; };
 		F7DEC1441225A0A332C59954 /* Pods-schedule_day.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-schedule_day.release.xcconfig"; path = "Target Support Files/Pods-schedule_day/Pods-schedule_day.release.xcconfig"; sourceTree = "<group>"; };
-		FC0BEA8126A4BA5900E735AF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		FC0BEA8126A4BA5900E735AF /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		FC0BEA8F26A74E7200E735AF /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		FC29576F26A7DAD4005C90E5 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		FC3F53C8269FB9FB00B995A6 /* schedule_day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = schedule_day.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +53,10 @@
 		FC98571D26A47979007A83FC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FC98572226A48AA7007A83FC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FC98572426A4A910007A83FC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		FCBC7BE026A9F31700AA9196 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		FCBC7BE226A9F9CF00AA9196 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		FCBC7BE426A9FAA100AA9196 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FCBC7BE626A9FC3500AA9196 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FE256E583462B387E71008E6 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +131,7 @@
 		FC3F53CA269FB9FB00B995A6 /* schedule_day */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC7BDF26A9F30800AA9196 /* entity */,
 				FC98572126A47995007A83FC /* backend */,
 				FC98571C26A47963007A83FC /* ViewControllers */,
 				FC3F53DA269FBA1300B995A6 /* assets */,
@@ -157,8 +166,11 @@
 				FC3F53CD269FB9FB00B995A6 /* ContentView.swift */,
 				FC98571D26A47979007A83FC /* SignInViewController.swift */,
 				FC98572226A48AA7007A83FC /* SignUpViewController.swift */,
-				FC0BEA8126A4BA5900E735AF /* Home.swift */,
+				FC0BEA8126A4BA5900E735AF /* TabViewController.swift */,
 				FC0BEA8F26A74E7200E735AF /* ConfirmationViewController.swift */,
+				FCBC7BE226A9F9CF00AA9196 /* CalendarViewController.swift */,
+				FCBC7BE426A9FAA100AA9196 /* HomeViewController.swift */,
+				FCBC7BE626A9FC3500AA9196 /* AccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +182,14 @@
 				FC29576F26A7DAD4005C90E5 /* UserController.swift */,
 			);
 			path = backend;
+			sourceTree = "<group>";
+		};
+		FCBC7BDF26A9F30800AA9196 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				FCBC7BE026A9F31700AA9196 /* UserEntity.swift */,
+			);
+			path = entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,9 +314,13 @@
 				FC3F53CE269FB9FB00B995A6 /* ContentView.swift in Sources */,
 				FC29577026A7DAD4005C90E5 /* UserController.swift in Sources */,
 				FC98572326A48AA7007A83FC /* SignUpViewController.swift in Sources */,
+				FCBC7BE526A9FAA100AA9196 /* HomeViewController.swift in Sources */,
 				FC98572526A4A910007A83FC /* SessionManager.swift in Sources */,
-				FC0BEA8226A4BA5900E735AF /* Home.swift in Sources */,
+				FC0BEA8226A4BA5900E735AF /* TabViewController.swift in Sources */,
+				FCBC7BE126A9F31700AA9196 /* UserEntity.swift in Sources */,
+				FCBC7BE326A9F9CF00AA9196 /* CalendarViewController.swift in Sources */,
 				FC3F53CC269FB9FB00B995A6 /* schedule_dayApp.swift in Sources */,
+				FCBC7BE726A9FC3500AA9196 /* AccountViewController.swift in Sources */,
 				14D37191C4D53C61EBF1CD8E /* AmplifyModels.swift in Sources */,
 				8F487FEF9749F7EDDDFB22EC /* User+Schema.swift in Sources */,
 				A0998C8A896875245E36C573 /* User.swift in Sources */,

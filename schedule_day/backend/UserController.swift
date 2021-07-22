@@ -9,28 +9,9 @@ import Foundation
 import SwiftUI
 import Amplify
 
-struct UserData {
-    var id: String
-    var name: String
-    var email: String
-    var username: String
-}
-
-class UserEntity: ObservableObject {
-    static let shared : UserEntity = UserEntity()
-    
-    @Published var signedInUser : UserData = UserData(id: "", name: "", email: "", username: "")
-    
-    private init() {}
-    
-    func setUser(user: UserData) -> Void {
-        signedInUser = user
-    }
-}
-
 final class UserController {
     
-    private var userEntity: UserEntity = UserEntity.shared
+    private var userEntity: UserEntity = UserEntity.shared    
     
     func createUser(name: String, email: String, username: String, password: String) -> Void {
         let user = User(name: name, email: email, username: username, password: password)
@@ -46,7 +27,7 @@ final class UserController {
         }
         receiveValue: { result in
             switch result {
-            case .success(let user):
+            case .success(let user):                
                 print("Successfully created user: \(user)")
             
             case .failure(let error):
