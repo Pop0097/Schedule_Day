@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Amplify
 import Combine
 
@@ -20,11 +21,9 @@ enum AuthState {
 final class SessionManager : ObservableObject {
     @Published var authState: AuthState = .SignIn
     
-    var userController = UserController()
+    private var userController = UserController()
     
-    func getCurrentAuthUser() {
-        
-        
+    func getCurrentAuthUser() -> Void {
         if let user = Amplify.Auth.getCurrentUser() {
             userController.getUser(username: String(user.username).capitalizingFirstLetter()) // Capitalize first letter since the authUser appears to remove all capitalization
             
@@ -33,7 +32,7 @@ final class SessionManager : ObservableObject {
             authState = .SignIn
         }
     }
-    
+ 
     func showSignUp() -> Void {
         authState = .SignUp
     }
@@ -104,7 +103,6 @@ final class SessionManager : ObservableObject {
         ) { [weak self] result in
             switch result {
             case .success(let signInResult):
-                print(signInResult)
                 if signInResult.isSignedIn {
                     DispatchQueue.main.async {
                         self?.getCurrentAuthUser()

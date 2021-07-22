@@ -14,7 +14,6 @@ import AmplifyPlugins
 struct MyAmplifyApp: App {
     
     @ObservedObject var sessionManager = SessionManager()
-    @ObservedObject var userController = UserController()
     
     init() {
         configureAmplify()
@@ -38,7 +37,7 @@ struct MyAmplifyApp: App {
                     .environmentObject(sessionManager)
                 
             case .Session:
-                Home(user: userController.signedInUser)
+                Home()
                     .environmentObject(sessionManager)
             }
         }

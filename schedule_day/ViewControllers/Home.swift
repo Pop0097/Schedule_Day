@@ -13,10 +13,10 @@ struct Home : View {
     
     @EnvironmentObject var sessionManager : SessionManager
     
-    let user: UserData
-    
+    @ObservedObject var userEntity : UserEntity = UserEntity.shared
+        
     var body : some View {
-        Text("Home: \(user.username) | \(user.email) | \(user.name)")
+        Text("Home: \(userEntity.signedInUser.username) | \(userEntity.signedInUser.email) | \(userEntity.signedInUser.name)")
         
         Button(action: { sessionManager.signOut() }) {
             Text("Sign Out")
