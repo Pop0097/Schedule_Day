@@ -25,6 +25,8 @@ struct HomeViewController: View {
     }
     
     private func fetchTodos() -> Void {
-        TodoController().getUserTodos(userId: userEntity.signedInUser.id)
+        if ("" != userEntity.signedInUser.id) {
+            TodoController().getUserTodos(userId: userEntity.signedInUser.id)
+        }
     }
 }

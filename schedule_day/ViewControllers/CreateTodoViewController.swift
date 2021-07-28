@@ -20,9 +20,12 @@ struct CreateTodoViewController: View {
     @State var startTime: Date = Date()
     @State var endTime: Date = Date()
     
-    @State var invalidInputs : Bool = false
+    @State var invalidInputs: Bool = false
+    @State var todoCreated: Bool = false
     
     @Environment(\.colorScheme) var colorScheme
+    
+    @Binding var tabSelection: Int
     
     func verifyInputs() -> Bool {
         if "" == title || endTime < startTime {
@@ -47,6 +50,9 @@ struct CreateTodoViewController: View {
             
             TodoController().createTodo(userId: userEntity.signedInUser.id, title: title, description: description, date: date, startTime: startTimeString, endTime: endTimeString)
             self.invalidInputs = false
+            self.todoCreated = true
+            
+            self.tabSelection = 1
         } else {
             self.invalidInputs = true
         }

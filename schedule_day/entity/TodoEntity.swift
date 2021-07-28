@@ -32,8 +32,11 @@ class TodoEntity: ObservableObject {
         singleTodo = todo
     }
     
-    func setListTodo(todos: [TodoData]) -> Void {
-        listTodo = todos
+    func setTodoList(todos: [TodoData]) -> Void {
+        listTodo.removeAll()
+
+        for todoItem in todos {
+            listTodo.append(todoItem)
+        }
     }
-    
 }

@@ -40,25 +40,25 @@ final class TodoController {
     func getUserTodos(userId: String) -> Void {
         let todo = Todo.keys
         let predicate = todo.userId == userId
-        
+                
         _ = Amplify.API.query(
             request: .list(Todo.self, where: predicate)
-        ) { [weak self] event in
+        ) { event in
             switch event {
             case .success(let result):
                 switch result {
                 case .success(let todo):
-                    if (0 > todo.count) {
+                    if (0 < todo.count) {
                         print("Successfully retrieved todos: \(todo)")
-                        
-                        var todoList: [TodoData] = []
-                        
-                        for todoItem in todo {
-                            todoList.append(TodoData(id: todoItem.id, userId: todoItem.userId, title: todoItem.title, description: todoItem.description, date: todoItem.date, startTime: todoItem.startTime, endTime: todoItem.endTime, isCompleted: todoItem.isCompleted))
-                        }
-                        
+                                                                       
                         DispatchQueue.main.async {
-                            self?.todoEntity.setListTodo(todos: todoList)
+                            var todoList: [TodoData] = []
+                            
+                            for todoItem in todo {
+                                todoList.append(TodoData(id: todoItem.id, userId: todoItem.userId, title: todoItem.title, description: todoItem.description, date: todoItem.date, startTime: todoItem.startTime, endTime: todoItem.endTime, isCompleted: todoItem.isCompleted))
+                            }
+                            
+                            TodoEntity.shared.setTodoList(todos: todoList)
                         }
                     } else {
                         print("No todos found")

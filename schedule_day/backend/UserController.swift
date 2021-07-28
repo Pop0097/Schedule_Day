@@ -14,7 +14,7 @@ import Amplify
 
 final class UserController {
     
-    private var userEntity: UserEntity = UserEntity.shared    
+    private var userEntity: UserEntity = UserEntity.shared
     
     func createUser(name: String, email: String, username: String, password: String) -> Void {
         let user = User(name: name, email: email, username: username, password: password)
@@ -54,6 +54,7 @@ final class UserController {
                         print("Successfully retrieved user: \(user)")
                         DispatchQueue.main.async {
                             self?.userEntity.setUser(user: UserData(id: user[0].id, name: user[0].name, email: user[0].email, username: user[0].username, todoIds: []))
+                            TodoController().getUserTodos(userId: user[0].id)
                         }
                     } else {
                         print("No users found")

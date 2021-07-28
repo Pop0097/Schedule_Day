@@ -24,6 +24,7 @@ class UserEntity: ObservableObject {
     private init() {}
     
     func setUser(user: UserData) -> Void {
+        print("Hello there")
         signedInUser = user
     }
 }
