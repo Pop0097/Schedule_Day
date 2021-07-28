@@ -11,13 +11,20 @@ import Amplify
 
 struct HomeViewController: View {
     
-    @EnvironmentObject var sessionManager : SessionManager
+    @EnvironmentObject var sessionManager: SessionManager
     
-    @ObservedObject var userEntity : UserEntity = UserEntity.shared
+    @ObservedObject var userEntity: UserEntity = UserEntity.shared
+    @ObservedObject var todoEntity: TodoEntity = TodoEntity.shared
         
     var body : some View {
         VStack {
             Text("Home: \(userEntity.signedInUser.username)")
-        }
+            
+            Text("Num Todos: \(todoEntity.listTodo.count)")
+        }.onAppear(perform: fetchTodos)
+    }
+    
+    private func fetchTodos() -> Void {
+        TodoController().getUserTodos(userId: userEntity.signedInUser.id)
     }
 }

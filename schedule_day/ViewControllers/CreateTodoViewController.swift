@@ -1,64 +1,68 @@
 //
-//  SignUpViewController.swift
+//  CreateTodoViewController.swift
 //  schedule_day
 //
-//  Created by Dhruv Rawat on 2021-07-18.
+//  Created by Dhruv Rawat on 2021-07-28.
 //
 
 import Foundation
 import SwiftUI
+import Amplify
 
-struct SignUpViewController : View {
+struct CreateTodoViewController: View {
     
-    @EnvironmentObject var sessionManager : SessionManager
+    @EnvironmentObject var sessionManager: SessionManager
     
-    @State var email : String = ""
-    @State var name : String = ""
-    @State var username : String = ""
-    @State var password : String = ""
-    @State var password_verify : String = ""
+    @ObservedObject var userEntity: UserEntity = UserEntity.shared
+    
+    @State var title: String = ""
+    @State var description: String = ""
+    @State var startTime: Date = Date()
+    @State var endTime: Date = Date()
     
     @State var invalidInputs : Bool = false
     
     @Environment(\.colorScheme) var colorScheme
     
     func verifyInputs() -> Bool {
-        if "" == email || "" == name || "" == username || "" == password || "" == password_verify || password != password_verify {
+        if "" == title || endTime < startTime {
             return false
         }
         return true
     }
     
-    func performSignup() {
+    func performCreation() {
         if verifyInputs() {
-            sessionManager.signUp(username: username.capitalizingFirstLetter(), password: password, email: email, name: name)
+            
+            let formatterTime = DateFormatter()
+            formatterTime.timeStyle = .medium
+            
+            let startTimeString: String = formatterTime.string(from: startTime)
+            let endTimeString: String = formatterTime.string(from: startTime)
+            
+            let formatterDay = DateFormatter()
+            formatterDay.dateStyle = .short
+            
+            let date = formatterDay.string(from: startTime)
+            
+            TodoController().createTodo(userId: userEntity.signedInUser.id, title: title, description: description, date: date, startTime: startTimeString, endTime: endTimeString)
             self.invalidInputs = false
         } else {
             self.invalidInputs = true
         }
     }
-    
-    var body: some View {
+        
+    var body : some View {
         VStack {
-            Text("Schedule Day")
-                .font(.largeTitle)
-            
-            Text("By Pop0097")
-                .font(.subheadline)
-            
-            Divider()
-            
-            Spacer()
-            
-            Text("Sign Up")
+            Text("New Todo")
                 .font(.title)
             
             Group {
                 VStack(alignment: .leading) {
-                    Text("Email")
+                    Text("Title")
                         .font(.headline)
                     
-                    TextField("Fill in your email", text: $email)
+                    TextField("Give a brief title", text: $title)
                         .padding(.all)
                         .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                         .cornerRadius(5.0)
@@ -66,10 +70,10 @@ struct SignUpViewController : View {
                 .padding(.horizontal, 15)
                 
                 VStack(alignment: .leading) {
-                    Text("Name")
+                    Text("Description")
                         .font(.headline)
                     
-                    TextField("Fill in your name", text: $name)
+                    TextField("Give an optional description for the task", text: $description)
                         .padding(.all)
                         .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                         .cornerRadius(5.0)
@@ -77,10 +81,10 @@ struct SignUpViewController : View {
                 .padding(.horizontal, 15)
                 
                 VStack(alignment: .leading) {
-                    Text("Username")
+                    Text("Start Time")
                         .font(.headline)
                     
-                    TextField("Fill in your username", text: $username)
+                    DatePicker("Enter your start time", selection: $startTime)
                         .padding(.all)
                         .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                         .cornerRadius(5.0)
@@ -88,31 +92,20 @@ struct SignUpViewController : View {
                 .padding(.horizontal, 15)
                 
                 VStack(alignment: .leading) {
-                    Text("Password")
+                    Text("End Time")
                         .font(.headline)
                     
-                    TextField("Fill in your password", text: $password)
+                    DatePicker("Enter your end time", selection: $endTime)
                         .padding(.all)
                         .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                         .cornerRadius(5.0)
                 }
                 .padding(.horizontal, 15)
                 
-                VStack(alignment: .leading) {
-                    Text("Verify Password")
-                        .font(.headline)
-                    
-                    TextField("Verify your password", text: $password_verify)
-                        .padding(.all)
-                        .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
-                        .cornerRadius(5.0)
-                }
-                .padding(.horizontal, 15)
-                
-                Button(action: {performSignup()}) {
+                Button(action: {performCreation()}) {
                     HStack {
                         Spacer()
-                        Text("Sign Up")
+                        Text("Create Todo")
                             .font(.headline)
                             .foregroundColor(.white)
                         Spacer()
@@ -130,14 +123,7 @@ struct SignUpViewController : View {
                     .padding(10.0)
                     .multilineTextAlignment(.center)
             }
-            
-            Spacer()
-            
-            Button(action: { sessionManager.showSignIn() }) {
-                Text("Already have an account? Sign In")
-            }
         }
     }
 }
-        
 

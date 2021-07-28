@@ -131,7 +131,7 @@ final class SessionManager : ObservableObject {
             switch result {
             case .success:
                 DispatchQueue.main.async {
-                    UserEntity.shared.setUser(user: UserData(id: "", name: "", email: "", username: ""))
+                    UserEntity.shared.setUser(user: UserData(id: "", name: "", email: "", username: "", todoIds: []))
                     self?.showSignIn()
                 }
                 

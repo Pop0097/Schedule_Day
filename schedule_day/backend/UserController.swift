@@ -6,8 +6,11 @@
 //
 
 import Foundation
-import SwiftUI
 import Amplify
+
+// amplify console api
+
+// amplify codegen models
 
 final class UserController {
     
@@ -50,7 +53,7 @@ final class UserController {
                     if (0 != user.count) {
                         print("Successfully retrieved user: \(user)")
                         DispatchQueue.main.async {
-                            self?.userEntity.setUser(user: UserData(id: user[0].id, name: user[0].name, email: user[0].email, username: user[0].username))
+                            self?.userEntity.setUser(user: UserData(id: user[0].id, name: user[0].name, email: user[0].email, username: user[0].username, todoIds: []))
                         }
                     } else {
                         print("No users found")

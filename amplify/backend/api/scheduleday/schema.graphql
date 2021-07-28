@@ -4,4 +4,17 @@ type User @model {
   email: String!
   username: String!
   password: String!
+  todoIds: [String]
 }
+
+type Todo @model {
+  id: ID!
+  userId: String!
+  title: String!
+  description: String!
+  date: String!
+  startTime: String!
+  endTime: String!
+  isCompleted: Boolean!
+}
+

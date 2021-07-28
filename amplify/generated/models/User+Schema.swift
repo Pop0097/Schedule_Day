@@ -10,6 +10,7 @@ extension User {
     case email
     case username
     case password
+    case todoIds
     case createdAt
     case updatedAt
   }
@@ -28,6 +29,7 @@ extension User {
       .field(user.email, is: .required, ofType: .string),
       .field(user.username, is: .required, ofType: .string),
       .field(user.password, is: .required, ofType: .string),
+      .field(user.todoIds, is: .optional, ofType: .embeddedCollection(of: String.self)),
       .field(user.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(user.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
     )

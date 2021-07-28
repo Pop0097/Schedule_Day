@@ -32,6 +32,11 @@ struct TabViewController: View {
                     Label("Account", systemImage: "person")
                 }
                 .environmentObject(sessionManager)
+            
+            CreateTodoViewController()
+                .tabItem {
+                    Label("Create Todo", systemImage: "plus")
+                }
         }
     }
 }

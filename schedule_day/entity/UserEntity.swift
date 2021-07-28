@@ -13,12 +13,13 @@ struct UserData {
     var name: String
     var email: String
     var username: String
+    var todoIds: [Todo]
 }
 
 class UserEntity: ObservableObject {
     static let shared : UserEntity = UserEntity()
     
-    @Published var signedInUser : UserData = UserData(id: "", name: "", email: "", username: "")
+    @Published var signedInUser : UserData = UserData(id: "", name: "", email: "", username: "", todoIds: [])
     
     private init() {}
     

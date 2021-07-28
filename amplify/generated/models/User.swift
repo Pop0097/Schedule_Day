@@ -8,6 +8,7 @@ public struct User: Model {
   public var email: String
   public var username: String
   public var password: String
+  public var todoIds: [String?]?
   public var createdAt: Temporal.DateTime?
   public var updatedAt: Temporal.DateTime?
   
@@ -15,12 +16,14 @@ public struct User: Model {
       name: String,
       email: String,
       username: String,
-      password: String) {
+      password: String,
+      todoIds: [String?]? = nil) {
     self.init(id: id,
       name: name,
       email: email,
       username: username,
       password: password,
+      todoIds: todoIds,
       createdAt: nil,
       updatedAt: nil)
   }
@@ -29,6 +32,7 @@ public struct User: Model {
       email: String,
       username: String,
       password: String,
+      todoIds: [String?]? = nil,
       createdAt: Temporal.DateTime? = nil,
       updatedAt: Temporal.DateTime? = nil) {
       self.id = id
@@ -36,6 +40,7 @@ public struct User: Model {
       self.email = email
       self.username = username
       self.password = password
+      self.todoIds = todoIds
       self.createdAt = createdAt
       self.updatedAt = updatedAt
   }
