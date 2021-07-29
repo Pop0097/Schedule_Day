@@ -18,10 +18,32 @@ struct HomeViewController: View {
         
     var body : some View {
         VStack {
-            Text("Home: \(userEntity.signedInUser.username)")
-            
-            Text("Num Todos: \(todoEntity.listTodo.count)")
-        }.onAppear(perform: fetchTodos)
+            ScrollView {
+                LazyVStack {
+                    ForEach(todoEntity.listTodo) { todo in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("\(todo.title)")
+                                    .font(.title2)
+                                Text("\(todo.startTime) - \(todo.endTime)")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .layoutPriority(100)
+                     
+                            Spacer()
+                        }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(20)
+                        .shadow(color: Color.black.opacity(0.08), radius: 5, x: 5, y: 5)
+                        .shadow(color: Color.black.opacity(0.08), radius: 5, x: -5, y: -5)
+                        .padding(.horizontal)
+                        .padding(.top)
+                    }
+                }
+            }.onAppear(perform: fetchTodos)
+        }
     }
     
     private func fetchTodos() -> Void {

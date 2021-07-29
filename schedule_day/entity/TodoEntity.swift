@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct TodoData {
+struct TodoData: Identifiable {
     var id: String
     var userId: String
     var title: String

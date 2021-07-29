@@ -37,6 +37,8 @@ struct CreateTodoViewController: View {
     func performCreation() {
         if verifyInputs() {
             
+            // https://www.hackingwithswift.com/example-code/system/how-to-convert-dates-and-times-to-a-string-using-dateformatter
+            
             let formatterTime = DateFormatter()
             formatterTime.timeStyle = .medium
             
@@ -90,7 +92,7 @@ struct CreateTodoViewController: View {
                     Text("Start Time")
                         .font(.headline)
                     
-                    DatePicker("Enter your start time", selection: $startTime)
+                    DatePicker("Start time", selection: $startTime)
                         .padding(.all)
                         .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                         .cornerRadius(5.0)
@@ -101,7 +103,7 @@ struct CreateTodoViewController: View {
                     Text("End Time")
                         .font(.headline)
                     
-                    DatePicker("Enter your end time", selection: $endTime)
+                    DatePicker("End time", selection: $endTime)
                         .padding(.all)
                         .background(colorScheme == .dark ? Color(red: 19.0/255.0, green: 23.0/255.0, blue: 24.0/255.0, opacity: 1.0) : Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
                         .cornerRadius(5.0)
